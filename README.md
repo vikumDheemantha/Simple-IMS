@@ -19,6 +19,7 @@ And this is developed for study purpose, but I like to continue to next steps. S
 (hsqldb.jar is included in this product for database management)
 
 Copyright (c) 2001-2018, The HSQL Development Group.
+
 Copyright (c) 1995-2000 by the Hypersonic SQL Group.
 
 [LICENSE](http://hsqldb.org/web/hsqlLicense.html)
