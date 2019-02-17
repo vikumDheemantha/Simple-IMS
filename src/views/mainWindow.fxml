@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainWindowController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem disable="true" mnemonicParsing="false" onAction="#handleImport" text="Import..." />
+                  <MenuItem fx:id="menueClose" disable="true" mnemonicParsing="false" onAction="#handleExport" text="Export..." />
+                  <MenuItem mnemonicParsing="false" onAction="#clearTable" text="Clear Database" />
+              <MenuItem mnemonicParsing="false" onAction="#handleClose" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleAddNew" text="New item" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleEditAll" text="Edit Selected Item" />
+              <MenuItem mnemonicParsing="false" onAction="#handleRemoveItem" text="Delete Selected Item" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <right>
+      <GridPane hgap="8.0" maxHeight="-Infinity" prefHeight="293.0" prefWidth="255.0" vgap="8.0" BorderPane.alignment="TOP_RIGHT">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="74.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="21.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="62.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="75.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="24.0" minHeight="0.0" prefHeight="16.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <children>
+            <Label text="Item ID:" GridPane.rowIndex="1" />
+            <Label text="Name" GridPane.rowIndex="2" />
+            <Label text="Location:" GridPane.rowIndex="3" />
+            <TextField fx:id="txtDisID" editable="false" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+            <TextField fx:id="txtDisName" editable="false" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+            <TextField fx:id="txtDisLocation" editable="false" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+            <Label text="Quantity" GridPane.rowIndex="4" />
+            <Label text="Dicription" GridPane.rowIndex="5" />
+            <TextArea fx:id="txtDisDiscription" editable="false" prefHeight="104.0" prefWidth="260.0" GridPane.columnSpan="4" GridPane.rowIndex="6" />
+            <Button fx:id="btnEditQnt" mnemonicParsing="false" onAction="#handleEditQt" prefHeight="26.0" prefWidth="77.0" text="Edit" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <TextField fx:id="txtDisQuantity" editable="false" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <Button fx:id="btnEditAll" mnemonicParsing="false" onAction="#handleEditAll" prefHeight="26.0" prefWidth="77.0" text="Edit" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Button fx:id="btnRemoveItem" mnemonicParsing="false" onAction="#handleRemoveItem" prefHeight="26.0" prefWidth="77.0" text="Remove" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <Label alignment="TOP_CENTER" prefHeight="24.0" prefWidth="251.0" text="Item Details" GridPane.columnSpan="4">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+   </right>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane hgap="8.0" minHeight="-Infinity" prefHeight="78.0" prefWidth="385.0" vgap="8.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="90.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="2.0" prefWidth="56.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="79.0" minWidth="10.0" prefWidth="79.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="10.0" prefWidth="65.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.0" minWidth="10.0" prefWidth="53.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="16.0" prefWidth="75.0" text="Search By:" />
+                  <RadioButton fx:id="radioID" mnemonicParsing="false" text="ID" GridPane.columnIndex="1">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="toogleSearch" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="radioName" mnemonicParsing="false" selected="true" text="Name" toggleGroup="$toogleSearch" GridPane.columnIndex="2" />
+                  <RadioButton fx:id="radioLocation" mnemonicParsing="false" text="Location" toggleGroup="$toogleSearch" GridPane.columnIndex="3" GridPane.columnSpan="2" />
+                  <TextField fx:id="txtSearch" minHeight="-Infinity" prefWidth="235.0" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                  <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#handleSearch" text="Search" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button fx:id="btnNew" mnemonicParsing="false" onAction="#handleAddNew" text="New" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </GridPane>
+            <TableView fx:id="tblResult" prefWidth="385.0">
+              <columns>
+                <TableColumn fx:id="colId" prefWidth="45.0" text="ID" />
+                <TableColumn fx:id="colName" prefWidth="140.0" text="Name" />
+                  <TableColumn fx:id="colLocation" prefWidth="119.0" text="location" />
+                  <TableColumn fx:id="colQuantity" prefWidth="79.0" text="Quantity" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <Label maxHeight="1.7976931348623157E308" text="© 2019, Vikum Dheemantha" BorderPane.alignment="BOTTOM_CENTER" />
+   </bottom>
+</BorderPane>
